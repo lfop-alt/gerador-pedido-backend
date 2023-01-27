@@ -29,6 +29,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(routers);
 
-app.listen(process.env.SERVER_PORT, () => {
+const port = process.env.SERVER_PORT || 3003;
+
+app.listen(port, () => {
   console.log(`Server Rodando na porta ${process.env.SERVER_PORT}`);
 });
