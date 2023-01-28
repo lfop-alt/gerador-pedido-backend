@@ -4,7 +4,8 @@ const { User } = require('../models');
 
 module.exports = {
   async createToken(req, res) {
-    const { email, password } = req.body;
+    try {
+      const { email, password } = req.body;
 
     if (!email || !password) {
       return res.status(401).json({ message: 'Credenciais Invalidas' });
@@ -29,5 +30,9 @@ module.exports = {
     });
 
     return res.json({ token });
+    } catch (err) {
+      return console.log(err)
+    }
+    
   },
 };
